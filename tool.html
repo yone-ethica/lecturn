@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF変換ツール - LecTurn</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">LecTurn</a>
+        <div class="nav-links">
+            <a href="tool.html">PDF変換ツール</a>
+            <a href="prompts.html">プロンプト集</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="main-title">PDF変換ツール</h1>
+        <p class="description">講義スライドの写真など、複数の画像ファイルを1つのPDFにまとめます。</p>
+
+        <div class="card-section">
+            <div class="content-card">
+                <div id="drop-zone">
+                    <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                    <span class="drop-zone-text">クリックしてファイルを選択</span>
+                    <span class="drop-zone-subtext">または、PCからファイルをドラッグ＆ドロップ</span>
+                </div>
+                
+                <input type="file" id="fileInput" accept="image/*" multiple style="display: none;">
+
+                <div id="file-list-container">
+                    <h3>選択中のファイル (撮影した順に並びます)</h3>
+                    <ul id="file-list">
+                        <li>まだファイルが選択されていません</li>
+                    </ul>
+                </div>
+                
+                <div class="orientation-container">
+                    <h3>PDFの向き:</h3>
+                    <label>
+                        <input type="radio" name="orientation" value="landscape" checked> 横長 (スライド向き)
+                    </label>
+                    <label>
+                        <input type="radio" name="orientation" value="portrait"> 縦長 (書類向き)
+                    </label>
+                </div>
+
+                <div class="filename-container">
+                    <label for="outputFilename">出力ファイル名:</label>
+                    <input type="text" id="outputFilename" value="LecTurn-converted">
+                </div>
+
+                <button id="convertButton">PDFに変換してダウンロード</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>免責事項：本ツールに取り込む資料の著作権および利用規約については、利用者各自の責任においてご確認ください。本ツールの利用によって生じたいかなる損害についても、サイト運営者は一切の責任を負いません。</p>
+        <p>&copy; 2025 LecTurn</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="js/tool.js"></script>
+
+</body>
+</html>

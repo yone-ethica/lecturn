@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロンプト集 - LecTurn</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">LecTurn</a>
+        <div class="nav-links">
+            <a href="index.html#pdf-tool">PDF変換ツール</a>
+            <a href="prompts.html">プロンプト集</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="main-title">Notebook LM プロンプト集</h1>
+        <p class="description">AIへの指示（プロンプト）を工夫して、人間にはできないような学習を体験してみましょう。</p>
+
+        <!-- プロンプト1: 難解な概念を比喩で解説 -->
+        <div class="card-section">
+            <div class="content-card">
+                <div class="prompt-header">
+                    <h2 class="prompt-title"><span class="sparkle-icon">✦</span>難解な概念を比喩で解説</h2>
+                    <button class="copy-button" onclick="copyToClipboard('prompt1')">コピー</button>
+                </div>
+                <pre id="prompt1" class="prompt-text">
+この資料に出てくる「<span class="customizable">機会費用</span>」という概念について、私が全くの初心者であると仮定して、<span class="customizable">アルバイトのシフト</span>を例に、中学生にも理解できるように説明してください。
+                </pre>
+            </div>
+        </div>
+
+        <!-- プロンプト2: 講義資料から「1枚神要約」を作成 -->
+        <div class="card-section">
+            <div class="content-card">
+                <div class="prompt-header">
+                    <h2 class="prompt-title"><span class="sparkle-icon">✦</span>講義資料から「1枚神要約」を作成</h2>
+                    <button class="copy-button" onclick="copyToClipboard('prompt2')">コピー</button>
+                </div>
+                <pre id="prompt2" class="prompt-text">
+この講義資料全体の内容を、テスト前に見返すための「要点まとめシート」を1ページで作成してください。重要なキーワード、公式、歴史的な流れがひと目でわかるように、情報を整理してまとめてください。
+                </pre>
+            </div>
+        </div>
+
+        <!-- プロンプト3: 無限模擬問題メーカー -->
+        <div class="card-section">
+            <div class="content-card">
+                <div class="prompt-header">
+                    <h2 class="prompt-title"><span class="sparkle-icon">✦</span>無限模擬問題メーカー</h2>
+                    <button class="copy-button" onclick="copyToClipboard('prompt3')">コピー</button>
+                </div>
+                <pre id="prompt3" class="prompt-text">
+この資料の内容に基づいて、私の理解度を徹底的にテストするための4択クイズを<span class="customizable">100問</span>作成してください。各問題には、正解の選択肢だけでなく、他の選択肢がなぜ間違いなのかについての簡潔な解説も必ず付けてください。
+                </pre>
+            </div>
+        </div>
+
+        <!-- プロンプト4: 教授の出題傾向を分析＆予測 -->
+        <div class="card-section">
+            <div class="content-card">
+                <div class="prompt-header">
+                    <h2 class="prompt-title"><span class="sparkle-icon">✦</span>教授の出題傾向を分析＆予測</h2>
+                    <button class="copy-button" onclick="copyToClipboard('prompt4')">コピー</button>
+                </div>
+                <pre id="prompt4" class="prompt-text">
+【前提】ソースには、これまでの講義資料と、過去問のPDFを追加してあります。
+
+これらの情報から、担当教授の出題傾向を分析してください。その上で、今年のテストで出題されそうな予想問題を、<span class="customizable">論述形式</span>で<span class="customizable">3問</span>作成してください。それぞれの問題について、出題が予想される理由も説明してください。
+                </pre>
+            </div>
+        </div>
+
+        <!-- プロンプト5: 批判的思考トレーナー -->
+        <div class="card-section">
+            <div class="content-card">
+                <div class="prompt-header">
+                    <h2 class="prompt-title"><span class="sparkle-icon">✦</span>批判的思考トレーナー</h2>
+                    <button class="copy-button" onclick="copyToClipboard('prompt5')">コピー</button>
+                </div>
+                <pre id="prompt5" class="prompt-text">
+あなたは優秀な批評家です。この講義資料で述べられている<span class="customizable">〇〇理論</span>に対して、あえて批判的な視点から考えられる反論、見落とされている論点、または現代社会に適用した場合の問題点を<span class="customizable">3つ</span>挙げてください。これにより、講義内容を多角的に捉え、より深い理解を得たいです。
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>免責事項：本ツールに取り込む資料の著作権および利用規約については、利用者各自の責任においてご確認ください。本ツールの利用によって生じたいかなる損害についても、サイト運営者は一切の責任を負いません。</p>
+        <p>&copy; 2025 LecTurn</p>
+    </footer>
+
+    <script>
+        function copyToClipboard(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('プロンプトをコピーしました！');
+            }, (err) => {
+                alert('コピーに失敗しました。');
+            });
+        }
+    </script>
+
+</body>
+</html>
